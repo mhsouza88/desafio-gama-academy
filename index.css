@@ -1,0 +1,93 @@
+@font-face {
+    src: url(Poppins-Regular.ttf);
+    font-family: 'Poppins-Regular';    
+    font-weight: normal;
+}
+
+body {
+    font-family: 'Poppins-Regular';
+}
+
+header {
+    text-align: center;
+}
+
+legend {
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    align-content: center;
+}
+
+p {
+    text-align: justify;
+    padding: 0 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #3954CC;
+    transition: 300ms;
+}
+
+a:hover {
+    color: #47AEDF;
+}
+
+nav {
+    justify-content: center;
+    display: flex;
+    list-style: none;   
+}
+
+nav a {
+    padding: 10px;
+}
+
+.textinho {
+    text-align: justify;
+    display: flex;
+}
+
+h2 {
+    margin: auto;
+    text-align: center;
+}
+
+form {
+    text-align: left;
+    display: flex;
+    width: 800px;
+    margin: 0 auto;
+}
+
+input {
+    margin: 3px;
+}
+
+label {
+    margin: 0 auto;
+}
+
+.required:after {
+    content:" *"; 
+    color: red;
+  }
+
+footer {
+    justify-content: center;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.enviar {
+    display: block;
+    margin: auto;
+    padding: 5px;
+}
+
+
