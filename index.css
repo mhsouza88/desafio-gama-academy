@@ -90,4 +90,33 @@ footer {
     padding: 5px;
 }
 
+.avatar {
+    vertical-align: left;
+    width: 100x;
+    height: 100px;
+    border-radius: 50%;
+    padding: 20px;
+  }
+
+.avatar2 {
+    vertical-align: right;
+    width: 100x;
+    height: 100px;
+    border-radius: 50%;
+    padding: 20px;
+  }
+
+  .bio {
+      text-align: justify;
+      display: flex;
+      padding-top: 20px;
+  }
+
+  .canto {
+	position: absolute;
+    top: 7pt;
+    left: 0px;
+    width: 50px;
+	}
+
 
