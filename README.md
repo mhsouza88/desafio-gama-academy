@@ -1,3 +1,6 @@
+![Cópia de Desafio Gama Academy](https://user-images.githubusercontent.com/88038506/130320673-02a6bd03-7868-49f1-9285-611d13d1a9c4.png)
+
+
 # Desafio #1: Banco de Currículos
 
 > A empresa JobsNET especialista em recrutamento e seleção de profissionais nas mais diversas áreas solicitou para a nossa fábrica de software desenvolver uma página para atração de profissionais para conectar as oportunidades de emprego.
