@@ -1,3 +1,4 @@
+-- ATENÇÃO: dados pessoais no banco de dados foram substituídos por placeholders, apenas para publicação no GitHub. Mesma coisa vale para conexao.php
 -- phpMyAdmin SQL Dump
 -- version 5.1.0
 -- https://www.phpmyadmin.net/
