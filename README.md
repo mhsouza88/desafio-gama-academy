@@ -32,3 +32,4 @@ Integração entre a Página de Formulário e o Back-end
 ## Notas
 - Como ainda estou me familiarizando com APIs e documentação, decidi (por enquanto) **não** implementar os dois últimos recursos pedidos no desafio. Pretendo implementá-los depois que aprender melhor sobre o assunto. 😺
 - Fiz uma página "quem somos" para o site, mas ela não foi pedida no desafio, é um extra.
+- Dados pessoais foram retirados em conexao.php (user, pw, etc) e em usuarios.sql. 
