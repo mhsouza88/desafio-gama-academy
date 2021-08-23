@@ -1,4 +1,7 @@
-<!-- Esse projeto foi feito para o desafio da Gama Academy. -->
+<?php
+include_once './conexao.php'
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -6,18 +9,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JobsNET - Conectando você ao seu futuro emprego!</title>
-    <link rel="shortcut icon" href="stuff/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="stuff/index.css">
-    <script src="stuff/index.js" defer></script>
+    <link rel="shortcut icon" href="assets/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="assets/index.css">
+    <script src="assets/index.js" defer></script>
 </head>
 <body>
 <!-- Cabeçalho -->
     <header>
-        <img src="stuff/logo.svg" width="20%">
+        <img src="assets/logo.svg" width="20%">
 <!-- Navbar -->
     <nav>
-        <li></li><a href="index.html">Home</a></li>
-        <li></li><a href="stuff/us.html">Quem Somos</a></li>
+        <li></li><a href="index.php">Home</a></li>
+        <li></li><a href="us.html">Quem Somos</a></li>
     </nav>
     </header>
 <!-- Texto-->
@@ -28,18 +31,34 @@
         <p>Cadastre hoje mesmo o seu currículo em nosso banco de dados e seja visto por milhares de empregadores na área de tecnologia! Preencha o formulário abaixo com todos os dados corretamente e em breve entraremos em contato com você.</p>
     </div>
 <!-- Formulário -->
+<?php
+                $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+
+                if(!empty($dados['caduser'])) {
+                    $empty_input = false;
+                    $query_usuario = "INSERT INTO usuarios (nome, profissao, nascimento, estadocivil, sexo, endereco, bairro, cidade, estado, cep, telefone, celular, email, cpf) VALUES ('" . $dados['nome'] . "','" . $dados['profissao'] . "','" . $dados['nascimento'] . "','" . $dados['estadocivil'] . "','" . $dados['sexo'] . "','" . $dados['endereco'] . "','" . $dados['bairro'] . "', '" . $dados['cidade'] . "','" . $dados['estado'] . "','" . $dados['cep'] . "','" . $dados['telefone'] . "','" . $dados['celular'] . "','" . $dados['email'] . "','" . $dados['cpf'] . "') ";
+                    $cad_usuario = $conn->prepare($query_usuario);
+                    $cad_usuario->execute();
+                    if ($cad_usuario->rowCount()) {
+                        echo "<h3 style='color: green; text-align: center'>Currículo enviado com sucesso!</h3>";
+                        unset($dados);
+                    } else {
+                        echo "<h3 style='color: red; text-align: center'>CPF já cadastrado.</h3>";
+                    }
+            }
+            ?>
     <div class="container" id="form">
-    <form name="cadastro" action="stuff/enviado.html" autocomplete="on" method="GET"> 
+    <form name="cadastro" action="" autocomplete="on" method="POST"> 
         <fieldset>
     <legend>DADOS PESSOAIS</legend>
     <label for="nome" class="form-group required">Nome completo:</label>
     <input type="text" id="nome" name="nome" required size="40px">
-    <label for="cargo" class="form-group required">Profissão:</label>
-    <input type="text" id="cargo" name="cargo" required><br>
-    <label for="idade" class="form-group required">Data de nascimento:</label>
+    <label for="profissao" class="form-group required">Profissão:</label>
+    <input type="text" id="profissao" name="profissao" required><br>
+    <label for="nascimento" class="form-group required">Data de nascimento:</label>
     <input type="date" id="nascimento" name="nascimento">
-    <label for="estado-civil">Estado Civil:</label>
-    <select id="estado-civil" name="estado-civil">
+    <label for="estadocivil">Estado Civil:</label>
+    <select id="estadocivil" name="estadocivil">
         <option value="">Selecione</option>
         <option value="solteiro">Solteiro(a)</option>
         <option value="casado">Casado(a)</option>
@@ -64,25 +83,25 @@
     <label for="cep" class="form-group required">CEP:</label>
     <input type="text" id="cep" name="cep" required><br>
     <label for="telefone">Telefone:</label>
-    <input type="tel" id="telefone" name="telefone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" size="30px">
+    <input type="tel" id="telefone" name="telefone" size="30px">
     <label for="tel" class="form-group required">Celular:</label>
-    <input type="tel" id="celular" name="celular" required pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" size="30px"><br>
+    <input type="tel" id="celular" name="celular" required size="30px"><br>
     <label for="email" class="form-group required">E-mail:</label>
     <input type="email" id="email" name="email" required size="30px">
     <label for="tel" class="form-group required">CPF:</label>
-    <input type="tel" id="cpf" name="cpf" required pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" size="30px" placeholder="Digite apenas números">   
+    <input type="tel" id="cpf" name="cpf" required size="30px" placeholder="Digite apenas números">   
     <br><br>
-    <button class="enviar" type="submit" form="cadastro">Enviar</button>
+    <input type="submit" class="enviar" value="Enviar" name="caduser">
         </fieldset>
         </form>
     </div>
 <!-- Rodapé -->
 <footer>
     <div id="social">
-        <img src="stuff/facebook.png" height="30px" width="30px" title="@JobsNEToficial">
-        <img src="stuff/instagram.png" height="30px" width="30px" title="@JobsNEToficial">
-        <img src="stuff/linkedin.png" height="30px" width="30px" title="@JobsNEToficial">
-        <img src="stuff/whatsapp.png" height="30px" width="30px" title="+ 55 (21) 99999-9999"><br>
+        <img src="assets/facebook.png" height="30px" width="30px" title="@JobsNEToficial">
+        <img src="assets/instagram.png" height="30px" width="30px" title="@JobsNEToficial">
+        <img src="assets/linkedin.png" height="30px" width="30px" title="@JobsNEToficial">
+        <img src="assets/whatsapp.png" height="30px" width="30px" title="+ 55 (21) 99999-9999"><br>
     </div>
 </div>
 <!-- Disclaimer -->
@@ -90,8 +109,8 @@
     <p>* Este não é um site verdadeiro. É um projeto para o desafio da Gama Academy.</p>
 </div>
 <div class="canto">
-    <img src="stuff/gama.png" width="80%" title="Desafio #1: Banco de Currículos"><br>
-    <img src="stuff/github.png" width="100%" title="GitHub: @mhsouza88"><br>
+    <img src="assets/gama.png" width="80%" title="Desafio #1: Banco de Currículos"><br>
+    <img src="assets/github.png" width="100%" title="GitHub: @mhsouza88"><br>
 </div>
 </footer>
 </body>
